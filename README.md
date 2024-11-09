@@ -1,3 +1,3 @@
-# myproject2
+# Projects
 
 Arxh peiramatos github
