@@ -20,11 +20,6 @@ if [[ $# -eq 2 ]]; then
 
 elif [[ $# -eq 1 ]]; then
 	echo "Haven't added a filename or a file extension."
-
 else
 	echo "Not enough or too meny arguments."
 fi
-
-
-
-
