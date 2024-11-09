@@ -1,4 +1,6 @@
-#! /bin/bash      #Askhsh 2
+#! /bin/bash    
+
+#Askhsh 2 - Lab3/lab4.pdf
 
 if [[ $# -eq 1 ]];
 then
