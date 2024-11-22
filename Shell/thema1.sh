@@ -74,9 +74,9 @@ else
 fi
 
 
-if [[ (ls -A "$dirname1") ]]; then
+if [[ $(ls -A "$dirname1") ]]; then
 
-	if [[ (ls -A "$dirname2") ]]; then
+	if [[ $(ls -A "$dirname2") ]]; then
 
 		sum1=$(ls "$dirname1" | wc -l)
 		sum2=$(ls "$dirname2" | wc -l)
@@ -97,7 +97,7 @@ else
 
 	echo "Directory 1 empty"
 
-	if [[ (ls -A "$dirname2") ]]; then
+	if [[ $(ls -A "$dirname2") ]]; then
 
                 sum2=$(ls "$dirname2" | wc -l)
 
