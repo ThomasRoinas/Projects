@@ -5,42 +5,63 @@ echo "Directory: $1"
 if [[ -d $1 ]]; then
 
 	echo "Directory: $1 exists"
+	cd $1
+	touch a.txt
+	touch b.txt
 
 elif [[ -f $1 ]]; then
 
 	echo "The name given is a file."
+	echo "Please rerun the script providing a name for a directory"
 else
 	echo "Directory: $1 doen't exists."
 	echo "Creating directory: $1"
 	mkdir ~/Ergasies/$1
 
 	cd $1
-	touch a.txt
-	touch z.txt
+	#touch a.txt
+	#touch z.txt
+
 fi
 
 echo "Give a name for the first directory"
 read dirname1
 
-if [[ -d $dirname1 ]]; then
+	if [[ -d $dirname1 ]]; then
 
-	echo "The directory: $dirname1 exists"
+		echo "The directory: $dirname1 exists"
 
-else
-	echo "The directory: $dirname1 created"
-	mkdir $dirname1
-fi
+		while [ -d $dirname1 ]
+		do
+			echo "Give a name for the first directory"
+			read dirname1
+
+			echo "The directory: $dirname1 exists"
+		done
+	fi
+
+echo "The directory: $dirname1 created"
+mkdir $dirname1
+
 
 echo "Give a name for the second directory"
 read dirname2
 
-if [[ -d $dirname2 ]]; then
+	if [[ -d $dirname2 ]]; then
 
-	echo "The directory: $dirname2 exists"
-else
-	echo "The directory: $dirname2 created"
-	mkdir $dirname2
-fi
+		echo "The directory: $dirname2 exists"
+
+		while [ -d $dirname2 ]
+		do
+			echo "Give a name for the second directory"
+			read dirname2
+
+			echo  "The directory: $dirname2 exists"
+		done
+	fi
+
+echo "The directory: $dirname2 created"
+mkdir $dirname2
 
 
 if [[ "(ls -A $1)" ]]; then
@@ -53,9 +74,41 @@ else
 fi
 
 
-sum1=$(ls "$dirname1" | wc -l)
-sum2=$(ls "$dirname2" | wc -l)
+if [[ (ls -A "$dirname1") ]]; then
 
-sum=$((sum1 + sum2))
+	if [[ (ls -A "$dirname2") ]]; then
 
-echo "$sum" > temp.txt
+		sum1=$(ls "$dirname1" | wc -l)
+		sum2=$(ls "$dirname2" | wc -l)
+
+		sum=$((sum1 + sum2))
+
+		echo "$sum" > temp.txt
+
+	else
+		sum1=$(ls "$dirname1" | wc -l)
+
+		sum=$((sum1))
+
+		echo "$sum" > temp.txt
+
+	fi
+else
+
+	echo "Directory 1 empty"
+
+	if [[ (ls -A "$dirname2") ]]; then
+
+                sum2=$(ls "$dirname2" | wc -l)
+
+                sum=$((sum2))
+
+                echo "$sum" > temp.txt
+
+	else
+		echo "Directory 1 and 2 empty"
+	fi
+fi
+
+echo "Arithmos arxeiwn:"
+cat temp.txt
