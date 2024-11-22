@@ -85,13 +85,21 @@ if [[ $(ls -A "$dirname1") ]]; then
 
 		echo "$sum" > temp.txt
 
+		echo "Arithmos arxeiwn"
+		cat temp.txt
+
 	else
+
+		echo "Directory 2 empty"
+
 		sum1=$(ls "$dirname1" | wc -l)
 
 		sum=$((sum1))
 
 		echo "$sum" > temp.txt
 
+		echo "Arithmos stoixeiwn"
+		cat temp.txt
 	fi
 else
 
@@ -105,10 +113,12 @@ else
 
                 echo "$sum" > temp.txt
 
+		echo "Arithmos stoixeiwn"
+		cat temp.txt
+
 	else
 		echo "Directory 1 and 2 empty"
+
+		echo "Arithmos arxeiwn: 0"
 	fi
 fi
-
-echo "Arithmos arxeiwn:"
-cat temp.txt
