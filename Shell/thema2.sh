@@ -145,7 +145,6 @@ do
 	}
 
 
-
 	epilogi2 () {
 
 		echo "Dwse to onoma arxeiou gia thn eggrafh"
@@ -261,7 +260,6 @@ do
 	}
 
 
-
 	epilogi3 () {
 
 		echo "Dwse to arxeio gia thn anazhthsh"
@@ -310,10 +308,6 @@ do
 	}
 
 
-
-
-
-
 	epilogi4 () {
 
 		echo "Dwse to arxeio"
@@ -332,15 +326,12 @@ do
 	}
 
 
-
 	epilogi () {
 
 		echo "Termatismos diadikasias"
 
 		exit 0
 	}
-
-
 
 
 	if [[ $epilogi -eq 1 ]]; then
