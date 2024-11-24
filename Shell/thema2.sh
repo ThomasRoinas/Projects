@@ -2,7 +2,7 @@
 
 valid=true
 
-while [[ $epilogi -ne 5 || "$valid" == true ]];
+while [[ epilogi -ne 5 || "$valid" == true ]];
 do
 
 	echo -e "\n"
@@ -16,6 +16,7 @@ do
 	echo "5. Έξοδος"
 
 	read epilogi
+
 
 	epilogi1 () {
 
@@ -308,6 +309,7 @@ do
 	}
 
 
+
 	epilogi4 () {
 
 		echo "Dwse to arxeio"
@@ -334,6 +336,7 @@ do
 	}
 
 
+
 	if [[ $epilogi -eq 1 ]]; then
 
 		epilogi1
@@ -353,5 +356,7 @@ do
 	elif [[ $epilogi -eq 5 ]]; then
 
 		epilogi5
+	else
+		echo "H epilogh (1-5)"
 	fi
 done
