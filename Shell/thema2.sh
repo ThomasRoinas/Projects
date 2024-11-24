@@ -326,7 +326,7 @@ do
 	}
 
 
-	epilogi () {
+	epilogi5 () {
 
 		echo "Termatismos diadikasias"
 
