@@ -321,14 +321,11 @@ do
 
 		if [[ -f $filename4 ]]; then
 
-			awk -F',' '{print $6}' $filename4 >> temp.txt
+			awk -F',' '{print $6}' $filename4 > test.txt
 
-			sort temp.txt
+			awk  '{print $1}' "test.txt" | sort | uniq -c | awk  '{print $2 ":", $1}'
 
-			
-
-
-			#echo "$(awk -F',' '{print $6}' $filename4): $(grep -w "$(awk -F',' '{print $6}' $filename4)" "$filename4" | wc -l)"
+			rm test.txt
 
 		else
 			echo "File doesn't exist"
