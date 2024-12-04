@@ -9,7 +9,7 @@ do
 
 	echo -e "\n"
 
-	echo -e "Epilekste mia epilogi pliktrologwntas ton antistoixo arithmo kathe epiloghs \n"
+	echo -e "Make a selection by typing the number between 1-5 according to your choice \n"
 
 	echo "1. Δημιουργία ενός αρχείου με στοιχεία φοιτητών ενός πανεπιστημίου"
 	echo "2. Προσθήκη νέου φοιτητή στο υπάρχον αρχείο"
@@ -22,28 +22,28 @@ do
 
 	epilogi1 () {
 
-		echo "Pliktrologiste to onoma tou arxeiou"
+		echo "Give a name for the file."
 		read filename
 
 		if [[ -f $filename ]]; then
 
-			echo "To arxeio: $filename urarxei hdh"
+			echo "Filename: $filename already exists"
 
 			while [ -f $filename ]
 			do
-				echo "Pliktrologise to onoma tou arxeiou"
+				echo "Give a name for the file.""
 				read filename
 
 				if  [[ -f $filename ]]; then
-					echo "The file: $filename exists"
+					echo "Filename: $filename already exists"
 				fi
 			done
 		fi
 
-		echo "The file: $filename created"
+		echo "The file: $filename has been created"
 		touch $filename
 
-		echo "Poses eggrafes thelete na ginoun"
+		echo "Amount of student entries: "
 		read numans
 
 		num=1
@@ -54,7 +54,7 @@ do
 			while true;
 			do
 
-				echo "Pliktrologise thn eggrafh $num : kωδικός φοιτητή, επώνυμο, όνομα, αριθμός μητρώου, βαθμός επίδοσης, τμήμα"
+				echo "Give the entry $num : kωδικός φοιτητή, επώνυμο, όνομα, αριθμός μητρώου, βαθμός επίδοσης, τμήμα"
 
 				read entry
 
@@ -65,7 +65,7 @@ do
 
 					flag=true
 				else
-					echo "The code is not an integer"
+					echo "The student code given is not an integer"
 				fi
 
 
@@ -78,7 +78,7 @@ do
 
 						flag=true
 					else
-						echo "The surname is not a string"
+						echo "The surname of the student given is not a string"
 						break
 					fi
 				fi
@@ -91,7 +91,7 @@ do
 
 						flag=true
 					else
-						echo "The name is not a string"
+						echo "The name of the student given is not a string"
 						break
 					fi
 				fi
@@ -104,7 +104,7 @@ do
 
 						flag=true
 					else
-						echo "The am is not int or 6"
+						echo "The AM of the student given must be an integer and six letters long."
 						break
 					fi
 				fi
@@ -117,7 +117,7 @@ do
 
 						flag=true
 					else
-						echo "Bathmos is not .dekadikos"
+						echo "The grade of the student given must be a of a decimal point 1"
 						break
 					fi
 				fi
@@ -130,7 +130,7 @@ do
 
 						flag=true
 					else
-						echo "Tmhma not a string"
+						echo "The school of the student is not a string"
 						break
 					fi
 
@@ -140,7 +140,7 @@ do
 
                 			echo "$entry" >> "$filename"
 
-					echo "Egine eggrafh sto arxeio" 
+					echo "Entry has beem save to file"
 
 					num=$((num + 1))
 					break
@@ -267,7 +267,7 @@ do
 
 	epilogi3 () {
 
-		echo "Dwse to arxeio gia thn anazhthsh"
+		echo "Give the file for searching the AM of a student"
 		read filename3
 
 		if [[ -f $filename3 ]]; then
@@ -277,7 +277,7 @@ do
 			while [ "$test" == false ]
 			do
 
-				echo "Dwse to AM"
+				echo "Give the AM to be searched"
 				read AM
 
 			if echo "$AM" | grep -qE '^[0-9]{6}$'; then
@@ -286,7 +286,7 @@ do
 				else
 					test=false
 
-					echo "AM oxi 6 or 0-9"
+					echo "The AM is not 6 characters long or contains characters outside of 0-9"
 				fi
 
 			done
@@ -297,11 +297,11 @@ do
 
 				if [[ -n "$found" ]]; then
 
-					echo "AM uparxei"
+					echo "The AM is found"
 					echo "$found" ###############
 				else
 
-					echo "To AM den uparxei"
+					echo "The AM wasn't found in the file"
 
 				fi
 
@@ -316,7 +316,7 @@ do
 
 	epilogi4 () {
 
-		echo "Dwse to arxeio"
+		echo "Give the file containing the entries of students"
 		read filename4
 
 		if [[ -f $filename4 ]]; then
@@ -328,14 +328,14 @@ do
 			rm test.txt
 
 		else
-			echo "File doesn't exist"
+			echo "The file given doesn't exist"
 		fi
 	}
 
 
 	epilogi5 () {
 
-		echo "Termatismos diadikasias"
+		echo "Process Terminated"
 
 		exit 0
 	}
@@ -362,6 +362,6 @@ do
 
 		epilogi5
 	else
-		echo "H epilogh (1-5)"
+		echo "Choice must be a number between 1-5"
 	fi
 done
