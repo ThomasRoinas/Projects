@@ -1,5 +1,7 @@
 #! /bin/bash
 
+#ThomasRoi
+
 valid=true
 
 while [[ epilogi -ne 5 || "$valid" == true ]];
@@ -7,7 +9,7 @@ do
 
 	echo -e "\n"
 
-	echo "Epilekste mia epilogi"
+	echo -e "Epilekste mia epilogi pliktrologwntas ton antistoixo arithmo kathe epiloghs \n"
 
 	echo "1. Δημιουργία ενός αρχείου με στοιχεία φοιτητών ενός πανεπιστημίου"
 	echo "2. Προσθήκη νέου φοιτητή στο υπάρχον αρχείο"
@@ -20,19 +22,21 @@ do
 
 	epilogi1 () {
 
-		echo "Dwse to onoma tou arxeiou"
+		echo "Pliktrologiste to onoma tou arxeiou"
 		read filename
 
 		if [[ -f $filename ]]; then
 
-			echo "The file: $filename exists"
+			echo "To arxeio: $filename urarxei hdh"
 
 			while [ -f $filename ]
 			do
-				echo "Dwse to onoma tou arxeiou"
+				echo "Pliktrologise to onoma tou arxeiou"
 				read filename
 
-				echo "The file: $filename exists"
+				if  [[ -f $filename ]]; then
+					echo "The file: $filename exists"
+				fi
 			done
 		fi
 
@@ -50,7 +54,7 @@ do
 			while true;
 			do
 
-				echo "Dwse egrafh: kωδικός φοιτητή, επώνυμο, όνομα, αριθμός μητρώου, βαθμός επίδοσης, τμήμα"
+				echo "Pliktrologise thn eggrafh $num : kωδικός φοιτητή, επώνυμο, όνομα, αριθμός μητρώου, βαθμός επίδοσης, τμήμα"
 
 				read entry
 
@@ -317,10 +321,14 @@ do
 
 		if [[ -f $filename4 ]]; then
 
-			echo "COMPUTER_SCIENCE: $(grep -w "COMPUTER_SCIENCE" "$filename4" | wc -l)"
-			echo "ECONOMICS: $(grep -w "ECONOMICS" "$filename4" | wc -l)"
-			echo "PRIMARY_EDUCATION: $(grep -w "PRIMARY_EDUCATION" "$filename4" | wc -l)"
-			echo "ART: $(grep -w "ART" "$filename4" | wc -l)"
+			awk -F',' '{print $6}' $filename4 >> temp.txt
+
+			sort temp.txt
+
+			
+
+
+			#echo "$(awk -F',' '{print $6}' $filename4): $(grep -w "$(awk -F',' '{print $6}' $filename4)" "$filename4" | wc -l)"
 
 		else
 			echo "File doesn't exist"
