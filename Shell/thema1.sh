@@ -1,21 +1,30 @@
 #! /bin/bash
 
-echo "Directory: $1"
+# Thomas Roi
+
+if [ $# -eq 0 ]; then
+
+  	echo "No argument given. Please re-run the script providing an argument for the initial directory."
+  	exit 0
+fi
 
 if [[ -d $1 ]]; then
 
-	echo "Directory: $1 exists"
+	echo "The directory: $1 already exists"
+	echo "Initial Directory: $1"
 	cd $1
 	touch a.txt
 	touch b.txt
 
 elif [[ -f $1 ]]; then
 
-	echo "The name given is a file."
-	echo "Please rerun the script providing a name for a directory"
+	echo "The name given belongs to a file"
+	echo "Please re-run the script providing a name which doesn't belong to a file."
+	exit 0
 else
-	echo "Directory: $1 doen't exists."
-	echo "Creating directory: $1"
+	echo "Directory: $1 doen't exist."
+	echo "Creating directory: $1 ..."
+	echo "Initial Directory: $1"
 	mkdir ~/Ergasies/$1
 
 	cd $1
@@ -29,18 +38,18 @@ read dirname1
 
 	if [[ -d $dirname1 ]]; then
 
-		echo "The directory: $dirname1 exists"
+		echo "The directory: $dirname1 already exists"
 
 		while [ -d $dirname1 ]
 		do
 			echo "Give a name for the first directory"
 			read dirname1
 
-			echo "The directory: $dirname1 exists"
+			echo "The directory: $dirname1 already exists"
 		done
 	fi
 
-echo "The directory: $dirname1 created"
+echo "The directory: $dirname1 has been created under Directory: /$1"
 mkdir $dirname1
 
 
@@ -49,18 +58,18 @@ read dirname2
 
 	if [[ -d $dirname2 ]]; then
 
-		echo "The directory: $dirname2 exists"
+		echo "The directory: $dirname2 already exists"
 
 		while [ -d $dirname2 ]
 		do
 			echo "Give a name for the second directory"
 			read dirname2
 
-			echo  "The directory: $dirname2 exists"
+			echo  "The directory: $dirname2 already exists"
 		done
 	fi
 
-echo "The directory: $dirname2 created"
+echo "The directory: $dirname2 has been created"
 mkdir $dirname2
 
 
@@ -70,7 +79,7 @@ if [[ "(ls -A $1)" ]]; then
 
 	find ~/Ergasies/$1 -maxdepth 1 -type f -name "[M-Zm-z]*" -exec mv {} ~/Ergasies/$1/$dirname2/ \;
 else
-	echo "The directory: $1 is empty"
+	echo "The directory: $1 contains no files"
 fi
 
 
@@ -85,12 +94,12 @@ if [[ $(ls -A "$dirname1") ]]; then
 
 		echo "$sum" > temp.txt
 
-		echo "Arithmos arxeiwn"
+		echo "Number of files"
 		cat temp.txt
 
 	else
 
-		echo "Directory 2 empty"
+		echo "The second Directory: $dirname2 contains no files."
 
 		sum1=$(ls "$dirname1" | wc -l)
 
@@ -98,12 +107,12 @@ if [[ $(ls -A "$dirname1") ]]; then
 
 		echo "$sum" > temp.txt
 
-		echo "Arithmos stoixeiwn"
+		echo "Number of files: "
 		cat temp.txt
 	fi
 else
 
-	echo "Directory 1 empty"
+	echo "The first Directory: $dirname1 contains no files."
 
 	if [[ $(ls -A "$dirname2") ]]; then
 
@@ -113,12 +122,14 @@ else
 
                 echo "$sum" > temp.txt
 
-		echo "Arithmos stoixeiwn"
+		echo "Number of files: "
 		cat temp.txt
 
 	else
-		echo "Directory 1 and 2 empty"
 
-		echo "Arithmos arxeiwn: 0"
+		echo "First: $dirname1 and Second: $dirname2 Directories contain no files"
+		echo "No transfers to be made ..."
+
+		echo "Number of files: 0"
 	fi
 fi
