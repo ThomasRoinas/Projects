@@ -31,7 +31,7 @@ do
 
 			while [ -f $filename ]
 			do
-				echo "Give a name for the file.""
+				echo "Give a name for the file."
 				read filename
 
 				if  [[ -f $filename ]]; then
@@ -140,7 +140,7 @@ do
 
                 			echo "$entry" >> "$filename"
 
-					echo "Entry has beem save to file"
+					echo "Entry has been save to file"
 
 					num=$((num + 1))
 					break
