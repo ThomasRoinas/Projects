@@ -40,8 +40,8 @@ do
 			done
 		fi
 
-		echo "The file: $filename has been created"
 		touch $filename
+		echo "The file: $filename has been created"
 
 		echo "Amount of student entries: "
 		read numans
@@ -152,7 +152,7 @@ do
 
 	epilogi2 () {
 
-		echo "Dwse to onoma arxeiou gia thn eggrafh"
+		echo "Give the filename for the file"
 		read filename2
 
 		if [[ -f $filename2 ]]; then
@@ -163,7 +163,7 @@ do
 			do
 				while true;
 				do
-					echo "Dwse egrafh: kωδικός φοιτητή, επώνυμο, όνομα, αριθμός μητρώου, βαθμός επίδοσης, τμήμα"
+					echo "Give an entry: kωδικός φοιτητή, επώνυμο, όνομα, αριθμός μητρώου, βαθμός επίδοσης, τμήμα"
 
 					read entry
 
@@ -174,7 +174,7 @@ do
 
 						flag=true
 					else
-						echo "The code is not an integer"
+						echo "The student code given is not an integer"
 					fi
 
 
@@ -187,7 +187,7 @@ do
 
 							flag=true
 						else
-							echo "The surname is not a string"
+							echo "The surname of the student given is not a string"
 							break
 						fi
 					fi
@@ -200,7 +200,7 @@ do
 
 							flag=true
 						else
-							echo "The name is not a string"
+							echo "The name of the student given is not a string"
 							break
 						fi
 					fi
@@ -213,7 +213,7 @@ do
 
 							flag=true
 						else
-							echo "The am is not int or 6"
+							echo "The AM of the student given must be an integer and six letters long"
 							break
 						fi
 					fi
@@ -226,7 +226,7 @@ do
 
 							flag=true
 						else
-							echo "Bathmos is not .dekadikos"
+							echo "The grade of the student given must be of a decimal point 1"
 							break
 						fi
 					fi
@@ -239,7 +239,7 @@ do
 
 							flag=true
 						else
-							echo "Tmhma not a string"
+							echo "The school of the student given is not a string"
 							break
 						fi
 
@@ -249,7 +249,7 @@ do
 
                 				echo "$entry" >> "$filename2"
 
-						echo "Egine eggrafh sto arxeio"
+						echo "Entry has been saved to file"
 
 						n=$((n + 1))
 						break
@@ -260,7 +260,7 @@ do
 			done
 
 		else
-			echo "To arxeio den uparxei"
+			echo "File doesn't exist"
 		fi
 	}
 
