@@ -1,6 +1,6 @@
 #! /bin/bash
 
-#ThomasRoi
+#ThomasRoi Tzkis D
 
 valid=true
 
