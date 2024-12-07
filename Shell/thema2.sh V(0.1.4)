@@ -25,6 +25,21 @@ do
 		echo "Give a name for the file."
 		read filename
 
+		if [[ -d $filename ]]; then
+
+                         echo "Filename: $filename is a directory"
+
+                          while [ -d $filename ]
+                          do
+                                  echo "Give a name for the file."
+                                  read filename
+
+                                  if  [[ -d $filename ]]; then
+                                         echo "Filename: $filename is a directory"
+ 	                          fi
+			done
+		fi
+
 		if [[ -f $filename ]]; then
 
 			echo "Filename: $filename already exists"
@@ -140,7 +155,7 @@ do
 
                 			echo "$entry" >> "$filename"
 
-					echo "Entry has been save to file"
+					echo "Entry has been saved to file"
 
 					num=$((num + 1))
 					break
@@ -304,7 +319,6 @@ do
 					echo "The AM wasn't found in the file"
 
 				fi
-
 			fi
 
 		else
