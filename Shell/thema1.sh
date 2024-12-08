@@ -66,7 +66,7 @@ read dirname2
 			echo "Give a name for the second directory"
 			read dirname2
 
-			echo  "The directory: $dirname2 already exists"
+#######			echo  "The directory: $dirname2 already exists"
 		done
 	fi
 
