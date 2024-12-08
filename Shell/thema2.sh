@@ -26,7 +26,7 @@ do
 
 		if [[ -d $filename ]]; then                 #Έλεγχος για το αν το όνομα του αρχείου που δώθηκε υπάρχει ήδη ως κατάλογος.
 
-                         echo "Filename: $filename is a directory"        
+                         echo "Filename: $filename is a directory"
 
                           while [ -d $filename ]             #Επανάληψη στην περίπτωση που δίνεται όνομα αρχείου που αντιστοιχεί σε κατάλογο.
                           do
@@ -45,8 +45,8 @@ do
 
 			while [ -f $filename ]             #Επανάληψη στην περίπτωση που δίνεται όνομα αρχείου που αντιστοιχεί σε ήδη υπάρχοντα αρχείο.
 			do
-				echo "Give a name for the file."   
-				read filename              
+				echo "Give a name for the file."
+				read filename
 
 				if  [[ -f $filename ]]; then
 					echo "Filename: $filename already exists"
@@ -57,7 +57,7 @@ do
 		touch $filename                            #Δημιουργείται αρχείο με το όνομα που δώθηκε από τον χρήστη.
 		echo "The file: $filename has been created"
 
-		echo "Amount of student entries: "         #Ζητείται από το χρήστη να εισάγει τον αριθμό των εγγραφών που θέλει αν γίνουν στο αρχείο. 
+		echo "Amount of student entries: "         #Ζητείται από το χρήστη να εισάγει τον αριθμό των εγγραφών που θέλει αν γίνουν στο αρχείο.
 		read numans
 
 		num=1                #Μετρητής για την επανάληψη της διαδικασίας εισαγωγής εγγραφών για όσες φορές έχει δηλώσει ο χρήστης.
@@ -152,7 +152,7 @@ do
 
                 			echo "$entry" >> "$filename"         #Η εγγραφή, εγγράφεται στο αρχείο που έχει οριστεί.
 
-					echo "Entry has been saved to file"
+					echo -e  "\nEntry has been saved to file"
 
 					num=$((num + 1))       #Αύξηση του μετρητή κατά 1 εφόσον έχει ολοκληρωθεί μία εγγραφή.
 					break         #Σταματάει η επανάληψη "while true;" ώστε να γίνει έλεγχος στην επανάληψη "while [ $num -le $numans ]".
@@ -170,7 +170,7 @@ do
 
 		if [[ -f $filename2 ]]; then    #Έλεγχος αν υπάρχει το αρχείο που έχει εισάγει ο χρήστης.
 
-			n=1   
+			n=1
 
 			while [ $n -eq 1 ]      #Η επανάληψη θα γίνεται μία φορά, όσο ο μετρητής "n" έχει την τιμή 1 (Θέλουμε να γίνει μία εγγραφή).
 			do
@@ -262,7 +262,7 @@ do
 
                 				echo "$entry" >> "$filename2"
 
-						echo "Entry has been saved to file"
+						echo -e "\nEntry has been saved to file"
 
 						n=$((n + 1))     #Ο μετρητής αυξάνεται κατά 1 ώστε να μην γίνει άλλη επανάληψη της διαδικασίας.
 						break
