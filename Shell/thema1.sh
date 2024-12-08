@@ -28,7 +28,7 @@ else                                          #Περίπτωση που το ό
 	echo "Directory: $1 doen't exist."    
 	echo "Creating directory: $1 ..."
 	echo "Initial Directory: $1"
-	mkdir ~/Ergasies/$1     #############
+	mkdir ~/$1     #############
 
  	cd $1
 	touch a.txt       #Δημιουργία 2 αρχείων στον αρχικό κατάλογο (για το βήμα 3).
