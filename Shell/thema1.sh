@@ -26,9 +26,9 @@ else
 	echo "Directory: $1 doen't exist."
 	echo "Creating directory: $1 ..."
 	echo "Initial Directory: $1"
-	mkdir ~/Ergasies/$1
+	mkdir ~/Ergasies/$1     #############
 
-	cd $1
+ 	cd $1
 	touch a.txt
 	touch z.txt
 
@@ -45,8 +45,11 @@ read dirname1
 		do
 			echo "Give a name for the first directory"
 			read dirname1
-#########
-			echo "The directory: $dirname1 already exists"
+
+			if [[ -d $dirname1 ]]; then
+
+				echo "The directory: $dirname1 already exists"
+			fi
 		done
 	fi
 
@@ -66,7 +69,10 @@ read dirname2
 			echo "Give a name for the second directory"
 			read dirname2
 
-#######			echo  "The directory: $dirname2 already exists"
+			if [[ -d $dirname2 ]]; then
+
+				echo  "The directory: $dirname2 already exists"
+			fi
 		done
 	fi
 
