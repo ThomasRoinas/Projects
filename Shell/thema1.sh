@@ -13,8 +13,9 @@ if [[ -d $1 ]]; then
 	echo "The directory: $1 already exists"
 	echo "Initial Directory: $1"
 	cd $1
+
 	touch a.txt
-	touch b.txt
+	touch z.txt
 
 elif [[ -f $1 ]]; then
 
@@ -28,8 +29,8 @@ else
 	mkdir ~/Ergasies/$1
 
 	cd $1
-	#touch a.txt
-	#touch z.txt
+	touch a.txt
+	touch z.txt
 
 fi
 
@@ -97,6 +98,8 @@ if [[ $(ls -A "$dirname1") ]]; then
 		echo "Number of files"
 		cat temp.txt
 
+		rm temp.txt
+
 	else
 
 		echo "The second Directory: $dirname2 contains no files."
@@ -109,6 +112,8 @@ if [[ $(ls -A "$dirname1") ]]; then
 
 		echo "Number of files: "
 		cat temp.txt
+
+		rm temp.txt
 	fi
 else
 
@@ -124,6 +129,8 @@ else
 
 		echo "Number of files: "
 		cat temp.txt
+
+		rm temp.txt
 
 	else
 
