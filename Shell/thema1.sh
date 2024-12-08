@@ -25,7 +25,7 @@ elif [[ -f $1 ]]; then      #Έλεγχος για το αν υπάρχει αρ
 	echo "Please re-run the script providing a name which doesn't belong to a file."
 	exit 0
 else                                          #Περίπτωση που το όνομα που δώθηκε δεν αντιστοιχεί σε κάποιο αρχείο ή κατάλογο.
-	echo "Directory: $1 doen't exist."    
+	echo "Directory: $1 doen't exist."
 	echo "Creating directory: $1 ..."
 	echo "Initial Directory: $1"
 	mkdir ~/$1     #############
@@ -41,13 +41,13 @@ fi
 echo "Give a name for the first directory"
 read dirname1
 
-	if [[ -d $dirname1 ]]; then             #Έλεγχος για το αν υπάρχει ήδη το όνομα του πρώτου καταλόγου.	
+	if [[ -d $dirname1 ]]; then             #Έλεγχος για το αν υπάρχει ήδη το όνομα του πρώτου καταλόγου.
 
 		echo "The directory: $dirname1 already exists"
-						
-      						#Επανάληψη για το αν υπάρχει το όνομα του καταλόγου, όπου στη περίπτωση εύρεσής του να συνεχίζει				
+
+      						#Επανάληψη για το αν υπάρχει το όνομα του καταλόγου, όπου στη περίπτωση εύρεσής του να συνεχίζει.
       						#να ζητείται απο το χρήστη να εισάγει ένα νέο όνομα.
-  		while [ -d $dirname1 ]          
+  		while [ -d $dirname1 ]
 		do
 			echo "Give a name for the first directory"
 			read dirname1
@@ -70,7 +70,7 @@ read dirname2
 
 		echo "The directory: $dirname2 already exists"
 
-  						#Επανάληψη για το αν υπάρχει το όνομα του καταλόγου, όπου στη περίπτωση εύρεσής του να συνεχίζει				
+  						#Επανάληψη για το αν υπάρχει το όνομα του καταλόγου, όπου στη περίπτωση εύρεσής του να συνεχίζει.
       						#να ζητείται απο το χρήστη να εισάγει ένα νέο όνομα.
 		while [ -d $dirname2 ]
 		do
@@ -91,9 +91,9 @@ mkdir $dirname2
 
 if [[ "(ls -A $1)" ]]; then     #Έλεγχος αν υπάρχουν αρχεία στον αρχικό κατάλογο.
 
-	find ~/Ergasies/$1 -maxdepth 1 -type f -name "[A-La-l]*" -exec mv {} ~/Ergasies/$1/$dirname1/ \;   #Μεταφορά αρχείων με όνομα που ξεκινά από τα γράμματα A-L στον πρώτο κατάλογο.
+	find ~/$1 -maxdepth 1 -type f -name "[A-La-l]*" -exec mv {} ~/$1/$dirname1/ \;   #Μεταφορά αρχείων με όνομα που ξεκινά από τα γράμματα A-L στον πρώτο κατάλογο.
 
-	find ~/Ergasies/$1 -maxdepth 1 -type f -name "[M-Zm-z]*" -exec mv {} ~/Ergasies/$1/$dirname2/ \;   #Μεταφορά αρχείων με όνομα που ξεκινά από τα γράμματα Μ-Ζ στον δεύτερο κατάλογο.
+	find ~/$1 -maxdepth 1 -type f -name "[M-Zm-z]*" -exec mv {} ~/$1/$dirname2/ \;   #Μεταφορά αρχείων με όνομα που ξεκινά από τα γράμματα Μ-Ζ στον δεύτερο κατάλογο.
 else
 	echo "The directory: $1 contains no files"   #Περίπτωση που δεν υπάρχουν αρχεία στον αρχικό κατάλογο.
 fi
@@ -105,7 +105,7 @@ if [[ $(ls -A "$dirname1") ]]; then   		#Έλεγχος αν υπάρχουν α
 	if [[ $(ls -A "$dirname2") ]]; then   	  #Έλεγχος αν υπάρχουν αρχεία στον δεύτερο κατάλογο.
 
  		#Σειρά εντολών στην περίπτωση που και οι δύο κατάλογοι περιέχουν αρχεία.
-   
+
 		sum1=$(ls "$dirname1" | wc -l)    #Πλήθος αρχείων πρώτου καταλόγου.
 		sum2=$(ls "$dirname2" | wc -l)    #Πλήθος αρχείων δεύτερου καταλόγου.
 
