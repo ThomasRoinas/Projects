@@ -45,7 +45,7 @@ read dirname1
 		do
 			echo "Give a name for the first directory"
 			read dirname1
-
+#########
 			echo "The directory: $dirname1 already exists"
 		done
 	fi
