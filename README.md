@@ -1,3 +1,4 @@
 # Projects
 
-Arxh peiramatos github
+Bash Shell and C projects.
+
